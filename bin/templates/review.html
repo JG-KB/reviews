@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title th:text="${review.title}">name of the review</title>
+</head>
+<body>
+	<header>
+		<h1>
+			<a href="/reviews"> Jaylen's Review </a>
+		</h1>
+		<h1 th:text="${review.title}"></h1>
+	</header>
+
+	<main>
+	<section th:text="${review.reviewCategory}"></section>
+	<ul>
+		<li th:text="${review.content}"></li>
+	</ul>
+	<img th:src="${review.imageUrl}" /> </main>
+
+	<footer>
+		<small>Jaylen's Works</small>
+	</footer>
+
+</body>
+</html>

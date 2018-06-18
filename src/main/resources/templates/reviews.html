@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Jaylen G to the K to the B's Review Blog</title>
+</head>
+<body>
+	<header>
+		<h1>Here is a list of my most recent reviews on things I think
+			about:</h1>
+	</header>
+
+	<main>
+
+	<ol>
+		<li th:each="review : ${reviews}"><a
+			th:href="|@{/reviews/}${review.id}|"> <!-- @{/reviews/} + ${review.id} -->
+				<span th:text="${review.title} + '!!! '"></span>
+
+		</a></li>
+	</ol>
+	</main>
+</body>
+</html>
