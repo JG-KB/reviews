@@ -1,14 +1,43 @@
 package org.wecancodeit.reviews;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
+
+@Entity
 public class Review {
-	private long id;
+	@Id
+	@GeneratedValue
+	private Long id;
 	private String title;
 	private String imageUrl;
-	private String reviewCategory;
+	@Lob
 	private String content;
-	private ArrayList<Tag> tags;
+	
+	
+	@ManyToOne
+	private Category category;
+	
+	public Review() {}
+	
+	public Review( String title, String imageUrl, String content, Category category) {
+		this.title = title;
+		this.imageUrl = imageUrl;
+		this.content = content;
+		this.category=category;
+		
+	}
+
+
+	public Category getCategory() {
+		return category;
+	}
 
 	public Long getId() {
 		return id;
@@ -22,21 +51,9 @@ public class Review {
 		return imageUrl;
 	}
 
-	public String getReviewCategory() {
-		return reviewCategory;
-	}
-
 	public String getContent() {
 		return content;
 	}
 
-	public Review(ArrayList<Tag> tags, Long id, String title, String imageUrl, String reviewCategory, String content) {
-		super();
-		this.id = id;
-		this.title = title;
-		this.imageUrl = imageUrl;
-		this.reviewCategory = reviewCategory;
-		this.content = content;
-		this.tags=tags;
-	}
-}
+}	
+

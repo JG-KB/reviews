@@ -1,4 +1,4 @@
-package org.wecancodeit.reviews;
+/*package org.wecancodeit.reviews;
 
 public class Tag {
 	
@@ -15,3 +15,4 @@ public class Tag {
 
 	
 }
+*/

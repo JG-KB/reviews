@@ -18,9 +18,9 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @RunWith(SpringRunner.class)
-@WebMvcTest(ReviewController.class)
+@WebMvcTest(ReviewSiteController.class)
 
-public class ReviewControllerTest {
+public class ReviewSiteControllerTest {
 
 	@Resource
 	MockMvc mvc;
@@ -58,6 +58,6 @@ public class ReviewControllerTest {
 
 	@Test
 	public void getReviewShouldReturnOneReview() throws Exception {
-		mvc.perform(get("/reviews/0")).andExpect(model().attribute("review", is(repo.findById(0L))));
+		mvc.perform(get("/reviews/0")).andExpect(model().attribute("review", is(repo.findOne(0L))));
 	}
 }
