@@ -55,5 +55,10 @@ public class Review {
 		return content;
 	}
 
+	@Override
+	public String toString() {
+		return "Review:" + title;
+	}
+	
 }	
 

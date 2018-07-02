@@ -36,6 +36,13 @@ public class ReviewSiteController {
 	@RequestMapping("/categories/{id}")
 	public String getCategory(@PathVariable(name= "id") Long id, Model model) {
 		model.addAttribute("category", categoryRepo.findOne(id));
-		return "categories";
+		return "category";
 	}
+	@RequestMapping("/index")
+	public String index(Model model) {
+		model.addAttribute("reviews", reviewRepo.findAll());
+		model.addAttribute("categories", categoryRepo.findAll());
+		return "index";
+	}
+	
 }

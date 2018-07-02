@@ -18,7 +18,7 @@ public class ReviewSitePopulator implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		Category sports = categoryRepo.save(new Category("sports"));
+		Category sports = categoryRepo.save(new Category("Sports"));
 		Category animals = categoryRepo.save(new Category("animals"));
 		Category myLife= categoryRepo.save(new Category("myLife"));
 		

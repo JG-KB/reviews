@@ -1,26 +1,37 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+<link rel="stylesheet" type="text/css" href="/css/styles.css" th:href="@{/css/styles.css}" />
+ <link rel="stylesheet" type="text/css" href="/css/layouts.css" th:href="@{/css/layouts.css}" />
 <title th:text="${review.title}">name of the review</title>
 </head>
 <body>
-	<header>
+	 <div class="border">
+	<div class ="containerForPages">
+	<header class="sHeader">
 		<h1>
-			<a th:href="/reviews"> Jaylen's Review </a>
+			<a th:href="@{/reviews}"> Jaylen's Review </a>
 		</h1>
 		<h1 th:text="${review.title}"></h1>
 	</header>
 
-	<main>
-	<section th:text="${review.reviewCategory}"></section>
+	<li th:each="category : ${review.category}">
+
+		<a th:href="|@{/categories/}${category.id}|">
+			<span th:text="${category}"></span>
+		</a>
+		</li>
+	
 	<ul>
-		<li th:text="${review.content}"></li>
+		<li class="contentText" th:text="${review.content}"></li>
 	</ul>
-	<img th:src="${review.imageUrl}" /> </main>
 
-	<footer>
-		<small>Jaylen's Works</small>
+	<img class="reviewsImage" th:src="${review.imageUrl}" />
+
+	<footer> <a th:href="@{/index}"> Home Page!</a>
 	</footer>
-
+	</div>
+	</div>
+	<script src="src/main/js/app.js"></script>
 </body>
 </html>

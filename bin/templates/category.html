@@ -3,26 +3,24 @@
 <head>
  <link rel="stylesheet" type="text/css" href="/css/styles.css" th:href="@{/css/styles.css}" />
  <link rel="stylesheet" type="text/css" href="/css/layouts.css" th:href="@{/css/layouts.css}" />
-<title>Jaylen G to the K to the B's Review Blog</title>
+<title th:text="${category.name}">name of the category</title>
 </head>
 <body>
 	 <div class="border">
 	<div class="containerForPages">
 	<header class="sHeader">
-		<h1>Here is a list of my most recent reviews on things I think
-			about:</h1>
+		<h1>
+			<a th:href="@{/categories}"> Jaylen's Categories </a>
+		</h1>
+		<h1 th:text="${category.name}"></h1>
 	</header>
 
-	<main>
-
-	<ol>
-		<li th:each="review : ${reviews}"><a
-			th:href="|@{/reviews/}${review.id}|"> 
-				<span th:text="${review.title} + '!!! '"></span>
-
-		</a></li>
-	</ol>
-	</main>
+	<li th:each="review : ${category.reviews}">
+                <!-- link that review to the URL of the review's title-->
+                <a th:href="|@{/reviews/}${review.id}|">
+                    <span th:text="${review}"></span>
+    </a>
+    </li>
 	<footer> <a th:href="@{/index}"> Home Page!</a>
 	</footer>
 	</div>

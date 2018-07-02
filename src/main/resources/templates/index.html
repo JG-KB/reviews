@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+ <link rel="stylesheet" type="text/css" href="/css/styles.css" th:href="@{/css/styles.css}" />
+ <link rel="stylesheet" type="text/css" href="/css/layouts.css" th:href="@{/css/layouts.css}" />
+<title>Jaylen G to the K to the B's Home Page</title>
+</head>
+<body>
+    <div class="border">
+    <div class="containerForHomePage">
+	<header class="homePageHeader">
+		<h1>Hello, welcome to the home page of my blog. Here you can find lists for posts by title or by category! Hope you find my thoughts helpful! </h1>
+	</header>
+
+	<main> <nav class = "homePageMenu">
+                <div class="dropDown1">
+                 <button onclick="clickFunction1()" class="dropDownButton1">Let me Save You Some Time</button>
+                <div id="myDropDown1" class="dropDownContent1" >
+                    <a th:href="@{/reviews}"> Titles</a>
+                    <a th:href="@{/categories}"> Categories</a>
+                </div>
+                </div>
+            </nav>
+     </main>
+     </div>
+     </div>
+	 <script src="/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+
+.otherPagesHeader {
+	background-color: red;
+	text-decoration: none;
+}
+.homePageHeader{
+	color: lightgreen;
+	background-color: none;
+}
+.containerForPages{
+	border-width: 5px;
+	border-left-style: inset;
+	border-right-style: inset;
+	border-top-style: inset;
+	border-color: silver;
+}
+.containerForHomePage{
+	border-width: 5px;
+	border-style: solid;
+	border-color: black;
+	background-image: url(/img/matrix.jpg);
+}
+
+
+footer {
+	background-color: black;
+	color: white;
+}
+footer small{
+	border-style: outset;
+	border-color: green;
+	border-width: 10px;
+	color: black;
+}
+footer a{
+	color: white;
+}
+
+a{
+	color: darkgreen;
+}
+
+.reviewsImage{
+	border-top-style: : solid;
+	border-bottom-style: solid;
+	border-right-style: solid;
+	border-left-style: solid;
+	border-top-color: : red;
+	border-left-color: darkgreen;
+	border-right-color: darkgreen;
+	border-bottom-color: red;
+	border-width: 5px;
+}
+
+.dropDownButton1 {
+    color: silver;
+    outline-color: black;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    background-color: inherit;
+    
+}
+.dropDownButton1:hover, .dropDownButton1:focus{
+	background-color: black;
+	color: silver;
+
+}
+.dropDownContent1 {
+	display: none;
+    position: absolute;
+    background-color: black;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.dropDownContent1 a {
+	color: green;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block
+}
+.dropDown1 a:hover{
+	background-color: silver;
