@@ -1,6 +1,5 @@
 package org.wecancodeit.reviews;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 
@@ -8,7 +7,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Review {
@@ -20,17 +23,25 @@ public class Review {
 	@Lob
 	private String content;
 	
+	@ManyToMany
+	private Collection <Tag> tags;
 	
 	@ManyToOne
 	private Category category;
 	
+	@JsonIgnore
+	@OneToMany(mappedBy="review")
+	private Collection<Comment> comments;
+	
 	public Review() {}
 	
-	public Review( String title, String imageUrl, String content, Category category) {
+	public Review( String title, String imageUrl, String content, Category category, Tag...tags) {
 		this.title = title;
 		this.imageUrl = imageUrl;
 		this.content = content;
 		this.category=category;
+		this.tags = Arrays.asList(tags);
+	
 		
 	}
 
@@ -53,6 +64,14 @@ public class Review {
 
 	public String getContent() {
 		return content;
+	}
+	
+	public Collection<Tag> getTags() {
+		return tags;
+	}
+	
+	public Collection<Comment> getComments() {
+		return comments;
 	}
 
 	@Override

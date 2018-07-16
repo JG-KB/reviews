@@ -5,16 +5,24 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class ReviewSiteController {
-
+	
+	
+	@Autowired
+	CommentRepository commentRepo;
+	
 	@Autowired
 	ReviewRepository reviewRepo;
 	
 	@Autowired
 	CategoryRepository categoryRepo;
+	
+	@Autowired
+	TagRepository tagRepo;
 
 	@RequestMapping("/reviews")
 	public String getReviews(Model model) {
@@ -44,5 +52,22 @@ public class ReviewSiteController {
 		model.addAttribute("categories", categoryRepo.findAll());
 		return "index";
 	}
+	@RequestMapping("/tags")
+	public String getTags(Model model) {
+		model.addAttribute("tags", tagRepo.findAll());
+		return "tags";
+	}
+	@RequestMapping("/tags/{name}")
+	public String getTitleFromTag(@PathVariable(name = "name")String name, Model model) {
+		model.addAttribute("tag", tagRepo.findByName(name));
+		return "tag";
+	}
+	
+	@RequestMapping(value="/reviews/{id}", method= RequestMethod.POST)
+	public String addComment(@PathVariable(name="id")Long id,String userComment) {
+		commentRepo.save(new Comment(userComment, reviewRepo.findOne(id)));
+		return "redirect:/reviews/{id}";
+	}
+	
 	
 }

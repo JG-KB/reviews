@@ -10,7 +10,8 @@ import org.springframework.stereotype.Service;
 
 
 public interface ReviewRepository extends CrudRepository <Review, Long> {
-	
+	Review findByTitle(String title);
+
 }
 
 	

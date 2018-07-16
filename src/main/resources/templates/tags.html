@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+ <link rel="stylesheet" type="text/css" href="/css/styles.css" th:href="@{/css/styles.css}" />
+ <link rel="stylesheet" type="text/css" href="/css/layouts.css" th:href="@{/css/layouts.css}" />
+<title>Jaylen G to the K to the B's Review Blog</title>
+</head>
+<body>
+	 <div class="border">
+	<div class="containerForPages">
+	<header class="sHeader">
+		<h1>Here is a list of some tags on things I think
+			about:</h1>
+	</header>
+
+	<main>
+
+	<ol class="tagList">
+		<li th:each="tag : ${tags}">
+		<a
+			th:href="|@{/tags/}${tag.id}|"> 
+				<span th:text="${tag.name} + '!!! '"></span> 
+				</a>
+			<button class="delete">Remove</button>
+		</li>
+	</ol>
+	</main>
+	<footer> <a th:href="@{/index}"> Home Page!</a>
+	</footer>
+	</div>
+	</div>
+	<script src="/js/removeTag.js"></script>
+</body>
+</html>
